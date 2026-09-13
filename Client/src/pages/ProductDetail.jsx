@@ -1,3 +1,8 @@
+import React, {
+  useMemo,
+  useState,
+} from "react";
+
 import {
   ArrowLeft,
   ArrowRight,
@@ -11,21 +16,16 @@ import {
 
 import { Link, useParams } from "react-router-dom";
 
-import { useMemo, useState } from "react";
-
 import useCollections from "../hooks/useCollections";
 import useProducts from "../hooks/useProducts";
-
 
 function ProductDetail() {
   const { slug } = useParams();
 
-  const [activeImage, setActiveImage] =
-    useState(0);
+  const [activeImage, setActiveImage] = useState(0);
 
   const [isFavourite, setIsFavourite] =
     useState(false);
-
 
   /* =========================================
      HYBRID DATA
@@ -36,26 +36,21 @@ function ProductDetail() {
     loading: collectionsLoading,
   } = useCollections();
 
-
   const {
     products,
     loading: productsLoading,
   } = useProducts();
 
-
   const product = products.find(
     (item) => item.slug === slug
   );
 
-
   const collection = product
     ? collections.find(
         (item) =>
-          item.slug ===
-          product.collection
+          item.slug === product.collection
       )
     : null;
-
 
   /* =========================================
      PRODUCTS FROM SAME COLLECTION
@@ -75,12 +70,10 @@ function ProductDetail() {
     );
   }, [products, product]);
 
-
   const currentIndex =
     collectionProducts.findIndex(
       (item) => item.slug === slug
     );
-
 
   const previousProduct =
     currentIndex > 0
@@ -89,7 +82,6 @@ function ProductDetail() {
         ]
       : null;
 
-
   const nextProduct =
     currentIndex <
         collectionProducts.length - 1
@@ -97,7 +89,6 @@ function ProductDetail() {
           currentIndex + 1
         ]
       : null;
-
 
   /* =========================================
      GALLERY
@@ -110,7 +101,6 @@ function ProductDetail() {
         ? [product.image]
         : [];
 
-
   /* =========================================
      LOADING
   ========================================= */
@@ -122,7 +112,6 @@ function ProductDetail() {
     return (
       <section className="product-detail-not-found">
         <div className="nova-container">
-
           <span className="nova-eyebrow">
             Product
           </span>
@@ -130,12 +119,10 @@ function ProductDetail() {
           <h1>
             Loading product...
           </h1>
-
         </div>
       </section>
     );
   }
-
 
   /* =========================================
      NOT FOUND
@@ -145,7 +132,6 @@ function ProductDetail() {
     return (
       <section className="product-detail-not-found">
         <div className="nova-container">
-
           <span className="nova-eyebrow">
             Product
           </span>
@@ -160,12 +146,10 @@ function ProductDetail() {
           >
             Back to Collections
           </Link>
-
         </div>
       </section>
     );
   }
-
 
   /* =========================================
      IMAGE RENDERER
@@ -181,10 +165,8 @@ function ProductDetail() {
       );
     }
 
-
     return (
       <div className="product-image-placeholder">
-
         <ImageIcon
           size={42}
           strokeWidth={1}
@@ -201,26 +183,20 @@ function ProductDetail() {
         <p>
           Recommended aspect ratio: 4:3 or 16:9
         </p>
-
       </div>
     );
   };
 
-
   return (
     <section className="product-detail">
-
 
       {/* =====================================
           TOP NAVIGATION / BREADCRUMB
       ====================================== */}
 
       <div className="product-detail-top">
-
         <div className="nova-container">
-
           <div className="product-detail-top-row">
-
 
             <div className="product-detail-breadcrumb">
 
@@ -250,16 +226,13 @@ function ProductDetail() {
 
             </div>
 
-
             <div className="product-detail-prev-next">
 
               {previousProduct ? (
-
                 <Link
                   to={`/products/${previousProduct.slug}`}
                   className="product-nav-link"
                 >
-
                   <ArrowLeft
                     size={13}
                     strokeWidth={1.2}
@@ -268,13 +241,9 @@ function ProductDetail() {
                   <span>
                     Previous
                   </span>
-
                 </Link>
-
               ) : (
-
                 <span className="product-nav-disabled">
-
                   <ArrowLeft
                     size={13}
                     strokeWidth={1.2}
@@ -283,24 +252,18 @@ function ProductDetail() {
                   <span>
                     Previous
                   </span>
-
                 </span>
-
               )}
-
 
               <span className="product-nav-divider">
                 |
               </span>
 
-
               {nextProduct ? (
-
                 <Link
                   to={`/products/${nextProduct.slug}`}
                   className="product-nav-link"
                 >
-
                   <span>
                     Next
                   </span>
@@ -309,13 +272,9 @@ function ProductDetail() {
                     size={13}
                     strokeWidth={1.2}
                   />
-
                 </Link>
-
               ) : (
-
                 <span className="product-nav-disabled">
-
                   <span>
                     Next
                   </span>
@@ -324,28 +283,20 @@ function ProductDetail() {
                     size={13}
                     strokeWidth={1.2}
                   />
-
                 </span>
-
               )}
 
             </div>
-
           </div>
-
         </div>
-
       </div>
-
 
       {/* =====================================
           MAIN CONTENT
       ====================================== */}
 
       <div className="nova-container">
-
         <div className="product-detail-main">
-
 
           {/* LEFT - GALLERY */}
 
@@ -365,22 +316,18 @@ function ProductDetail() {
                     product.name
                   )}
 
-
               <button
                 type="button"
                 className="product-image-zoom"
                 aria-label="View larger image"
               >
-
                 <Search
                   size={19}
                   strokeWidth={1.2}
                 />
-
               </button>
 
             </div>
-
 
             {/* THUMBNAILS */}
 
@@ -392,14 +339,11 @@ function ProductDetail() {
                 disabled
                 aria-label="Previous image"
               >
-
                 <ArrowLeft
                   size={16}
                   strokeWidth={1.2}
                 />
-
               </button>
-
 
               {(
                 galleryImages.length > 0
@@ -413,7 +357,6 @@ function ProductDetail() {
                     ]
               ).map(
                 (image, index) => (
-
                   <button
                     type="button"
                     key={index}
@@ -429,28 +372,20 @@ function ProductDetail() {
                       index + 1
                     }`}
                   >
-
                     {image ? (
-
                       <img
                         src={image}
                         alt=""
                       />
-
                     ) : (
-
                       <ImageIcon
                         size={20}
                         strokeWidth={1}
                       />
-
                     )}
-
                   </button>
-
                 )
               )}
-
 
               <button
                 type="button"
@@ -458,23 +393,18 @@ function ProductDetail() {
                 disabled
                 aria-label="Next image"
               >
-
                 <ArrowRight
                   size={16}
                   strokeWidth={1.2}
                 />
-
               </button>
 
             </div>
-
           </div>
-
 
           {/* RIGHT - PRODUCT INFO */}
 
           <div className="product-detail-info">
-
 
             <div className="product-detail-info-header">
 
@@ -484,18 +414,15 @@ function ProductDetail() {
                   {collection?.name} Collection
                 </span>
 
-
                 <h1>
                   {product.name}
                 </h1>
-
 
                 <div className="product-detail-subtitle">
                   {product.subtitle}
                 </div>
 
               </div>
-
 
               <button
                 type="button"
@@ -511,7 +438,6 @@ function ProductDetail() {
                 }
                 aria-label="Add to favourites"
               >
-
                 <Heart
                   size={28}
                   strokeWidth={1.1}
@@ -527,63 +453,84 @@ function ProductDetail() {
                   <br />
                   Favourites
                 </span>
-
               </button>
 
             </div>
-
 
             <p className="product-detail-description">
               {product.description}
             </p>
 
-
-            {/* SPECIFICATIONS */}
+            {/* =========================================
+                SPECIFICATIONS
+            ========================================== */}
 
             <div className="product-specifications">
 
               {product.specs &&
-                Object.entries(
-                  product.specs
-                ).map(
+                Object.entries(product.specs).map(
                   ([label, value]) => (
+                    <React.Fragment key={label}>
 
-                    <div
-                      className="product-spec-row"
-                      key={label}
-                    >
+                      {/* Fixed Guarantee row before Thickness */}
+                      {label
+                        .toLowerCase()
+                        .trim() === "thickness" && (
+                        <div className="product-spec-row">
 
-                      <span className="product-spec-label">
-                        {label}
-                      </span>
+                          <span className="product-spec-label">
+                            Guarantee
+                          </span>
 
-                      <span className="product-spec-value">
-                        {value}
-                      </span>
+                          <span className="product-spec-value">
+                            10 Years
+                          </span>
 
-                      <ChevronDown
-                        className="product-spec-mobile-arrow"
-                        size={15}
-                        strokeWidth={1.2}
-                      />
+                          <ChevronDown
+                            className="product-spec-mobile-arrow"
+                            size={15}
+                            strokeWidth={1.2}
+                          />
 
-                    </div>
+                        </div>
+                      )}
 
+                      <div className="product-spec-row">
+
+                        <span className="product-spec-label">
+                          {label}
+                        </span>
+
+                        <span className="product-spec-value">
+                          {value}
+                        </span>
+
+                        <ChevronDown
+                          className="product-spec-mobile-arrow"
+                          size={15}
+                          strokeWidth={1.2}
+                        />
+
+                      </div>
+
+                    </React.Fragment>
                   )
                 )}
 
             </div>
 
-
-            {/* ACTIONS */}
+            {/* =========================================
+                ACTIONS
+            ========================================== */}
 
             <div className="product-detail-actions">
 
               <a
-                href="/contact"
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noreferrer"
                 className="product-action-primary"
               >
-
                 <MessageCircle
                   size={18}
                   strokeWidth={1.3}
@@ -597,15 +544,12 @@ function ProductDetail() {
                   size={17}
                   strokeWidth={1.3}
                 />
-
               </a>
-
 
               <Link
                 to="/contact"
                 className="product-action-secondary"
               >
-
                 <span>
                   Request a Sample
                 </span>
@@ -614,13 +558,13 @@ function ProductDetail() {
                   size={17}
                   strokeWidth={1.3}
                 />
-
               </Link>
 
             </div>
 
-
-            {/* BENEFITS */}
+            {/* =========================================
+                BENEFITS
+            ========================================== */}
 
             <div className="product-benefits">
 
@@ -639,7 +583,6 @@ function ProductDetail() {
 
               </div>
 
-
               <div className="product-benefit">
 
                 <span className="product-benefit-icon">
@@ -653,7 +596,6 @@ function ProductDetail() {
                 </span>
 
               </div>
-
 
               <div className="product-benefit">
 
@@ -674,12 +616,10 @@ function ProductDetail() {
           </div>
 
         </div>
-
       </div>
 
     </section>
   );
 }
-
 
 export default ProductDetail;
