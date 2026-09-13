@@ -228,7 +228,7 @@ const Contact = () => {
                 <small>Studio</small>
 
                 <strong>
-                  
+                  140 Preet Vihar Near GNDU
                   <br />
                   Amritsar, Punjab 143001
                 </strong>
