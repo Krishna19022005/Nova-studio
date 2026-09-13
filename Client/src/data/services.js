@@ -1,22 +1,22 @@
 const services = [
   {
     id: "metallic-flooring",
-    name: "Metallic Flooring",
+    name: "Metallic Epoxy Flooring",
     shortName: "Metallic Flooring",
   },
   {
     id: "epoxy-flooring",
-    name: "Epoxy Flooring",
+    name: "3D Epoxy Flooring",
     shortName: "Epoxy Flooring",
   },
   {
     id: "italian-flooring",
-    name: "Italian Flooring",
+    name: "Italian Epoxy Flooring",
     shortName: "Italian Flooring",
   },
   {
     id: "3d-industrial-flooring",
-    name: "3-D Industrial Flooring",
+    name: "Industrial Epoxy Flooring",
     shortName: "3-D Industrial Flooring",
   },
   {
@@ -28,27 +28,13 @@ const services = [
     id: "wooden-flooring",
     name: "Wooden Flooring",
     shortName: "Wooden Flooring",
-  },
-  {
-    id: "pew-flooring",
-    name: "Pew Flooring",
-    shortName: "Pew Flooring",
-  },
+  },,
   {
     id: "pu-waterproofing",
     name: "PU Waterproofing",
     shortName: "PU Waterproofing",
   },
-  {
-    id: "pvc-pipe",
-    name: "PVC Pipe",
-    shortName: "PVC Pipe",
-  },
-  {
-    id: "pvc-parametric",
-    name: "PVC Parametric",
-    shortName: "PVC Parametric",
-  },
+  
   {
     id: "aluminum-exterior-curtains",
     name: "Aluminum Exterior & Curtains",

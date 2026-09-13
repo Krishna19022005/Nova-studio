@@ -112,7 +112,7 @@ function Navbar() {
         <div className="nova-mobile-actions">
 
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/919041665532"
             target="_blank"
             rel="noreferrer"
             className="nova-mobile-whatsapp"
