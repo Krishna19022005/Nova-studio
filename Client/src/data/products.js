@@ -5,7 +5,6 @@ import industrial1 from "../assets/products/Industrial1.png";
 import industrial2 from "../assets/products/Industrial2.png";
 import industrial3 from "../assets/products/Industrial3.png";
 
-import itallic1 from "../assets/products/itallic1.png";
 import itallic2 from "../assets/products/itallic2.png";
 import itallic3 from "../assets/products/itallic3.png";
 
@@ -190,37 +189,7 @@ const products = [
      ITALLIC COLLECTION
   ========================================================= */
 
-  {
-    id: "venetian-mist",
-    collection: "italian",
-    name: "Venetian Mist",
-    code: "IT-001",
-    slug: "venetian-mist",
-
-    subtitle: "Italian elegance. Soft movement.",
-
-    description:
-      "A refined Italian-inspired surface featuring subtle tonal variation and elegant movement for sophisticated interiors.",
-
-    image: itallic1,
-    gallery: [itallic1],
-
-    specs: {
-      colour: "Warm Ivory",
-      finish: "Satin",
-      texture: "Soft Mineral",
-      application:
-        "Residential | Hospitality | Retail",
-      thickness: "2mm – 5mm",
-      maintenance: "Low Maintenance",
-      customization:
-        "Available (Colour, Finish)",
-    },
-
-    finish: "Satin",
-    colour: "Ivory",
-    space: "Residential",
-  },
+ 
 
   {
     id: "marble-atelier",
