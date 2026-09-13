@@ -5,9 +5,9 @@ import industrial1 from "../assets/products/Industrial1.png";
 import industrial2 from "../assets/products/Industrial2.png";
 import industrial3 from "../assets/products/Industrial3.png";
 
-import itallic1 from "../assets/products/Itallic1.png";
-import itallic2 from "../assets/products/Itallic2.png";
-import itallic3 from "../assets/products/Itallic3.png";
+import itallic1 from "../assets/products/itallic1.png";
+import itallic2 from "../assets/products/itallic2.png";
+import itallic3 from "../assets/products/itallic3.png";
 
 import metallic1 from "../assets/products/metallic1.png";
 import metallic2 from "../assets/products/metallic2.png";
